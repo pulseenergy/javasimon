@@ -91,6 +91,15 @@ final class StopwatchImpl extends AbstractSimon implements Stopwatch {
 		}
 	}
 
+	/**
+	 * Protected method doing the stop work based on provided start nano-time.
+	 *
+	 * @param split Split object that has been cancelled
+	 */
+	synchronized void cancel(Split split) {
+		active--;
+	}
+
 	// Uses last usage, hence it must be placed after usages update
 	private void activeStart() {
 		active++;

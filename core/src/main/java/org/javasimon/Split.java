@@ -47,6 +47,16 @@ public final class Split {
 		}
 		return 0;
 	}
+	
+	/**
+	 * Cancels the time split if the split is still running.
+	 */
+	public void cancel() {
+		if (stopwatch != null && start != 0) {
+			stopwatch.cancel(this);
+			start = 0;
+		}
+	}
 
 	/**
 	 * Returns the current running nano-time from the start to the method call or the total split time
